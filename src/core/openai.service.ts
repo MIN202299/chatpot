@@ -11,7 +11,7 @@ export class OpenAi {
   private temperature = 0.9; // 0 - 2
   private max_tokens;
   private axiosConfig = {
-    timeout: 50000
+    timeout: 5000
   }
   private logger = new Logger('CHATPOT')
   constructor() {
@@ -30,7 +30,6 @@ export class OpenAi {
         temperature: this.temperature,
         max_tokens: this.max_tokens
       }, this.axiosConfig)
-      console.log(res)
       data = res.data
     } catch(err) {
       this.logger.error(err)
